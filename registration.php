@@ -58,8 +58,7 @@
 
 <?php
 
-mysql_connect("localhost","root","");
-mysql_select_db("registration");
+$con=mysqli_connect("localhost","root","","registration");
 
 	if(isset($_POST['submit']))
 	{
@@ -100,7 +99,7 @@ mysql_select_db("registration");
 	}
 	
 	$query="insert into studenttest(stu_id,stu_name,stu_address,stu_email,stu_contact) values ('$user_id','$user_name','$user_address','$user_email','$user_contact')";
-	if(mysql_query($query)){
+	if(mysqli_query($con,$query)){
 	echo "<script>alert('Registration Successful')</script>";
 	}
 	}
